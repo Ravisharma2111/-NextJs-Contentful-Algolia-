@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 import { SET_POSTS, SET_POST } from './actions';
 
 interface Post {
-  // Adjust the properties based on your data structure
   sys: {
     id: string;
   };

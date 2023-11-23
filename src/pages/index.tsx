@@ -21,7 +21,6 @@ const Home = () => {
   const posts = useSelector((state: RootState) => state.posts);
 
   useEffect(() => {
-    // Fetch posts and dispatch to Redux store
     const fetchPosts = async () => {
       const allPosts = await getAllPosts();
       if (allPosts !== null) {
@@ -43,7 +42,7 @@ const Home = () => {
               <a>{post.fields.title}</a>
             </Link>
           </li>
-        )) || []} {/* Add an empty array as a fallback if posts is null */}
+        )) || []} 
       </ul>
 
     </div>

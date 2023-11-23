@@ -12,8 +12,7 @@ interface Post {
   };
 }
 interface RootState {
-  posts: Post[]; // Assuming 'posts' is an array of Post objects
-  // ... other state properties
+  posts: Post[]; 
 }
 
 const PostList: React.FC = () => {

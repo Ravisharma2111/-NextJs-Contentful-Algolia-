@@ -13,7 +13,6 @@ const PostDetail = () => {
   const post = useSelector((state: RootState) => state.post);
 
   useEffect(() => {
-    // Fetch post by slug and dispatch to Redux store
     const fetchPost = async () => {
       const singlePost = await getPostBySlug(slug);
       dispatch(setPost(singlePost));

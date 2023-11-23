@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPostBySlug } from '../lib/contentful';
 import { setPost } from '../redux/actions';
-import { RootState } from '../redux/types'; // Assuming you have a types file for Redux
+import { RootState } from '../redux/types'; 
 
 const PostDetail: React.FC = () => {
   const router = useRouter();

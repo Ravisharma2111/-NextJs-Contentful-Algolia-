@@ -4,12 +4,12 @@ export const SET_POST = 'SET_POST';
 
 interface SetPostsAction {
   type: typeof SET_POSTS;
-  payload: any[]; // Adjust the payload type based on your data structure
+  payload: any[]; 
 }
 
 interface SetPostAction {
   type: typeof SET_POST;
-  payload: any; // Adjust the payload type based on your data structure
+  payload: any; 
 }
 
 export const setPosts = (posts: any[]): SetPostsAction => ({
