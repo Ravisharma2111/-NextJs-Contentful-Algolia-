@@ -1,8 +1,20 @@
 // components/PostList.tsx
 import Link from 'next/link';
-import { useSelector,  } from 'react-redux';
-import { Post,RootState } from '../redux/types';
+import { useSelector } from 'react-redux';
 
+interface Post {
+  sys: {
+    id: string;
+  };
+  fields: {
+    slug: string;
+    title: string;
+  };
+}
+interface RootState {
+  posts: Post[]; // Assuming 'posts' is an array of Post objects
+  // ... other state properties
+}
 
 const PostList: React.FC = () => {
   const posts = useSelector((state: RootState) => state.posts);

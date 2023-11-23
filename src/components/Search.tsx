@@ -1,6 +1,6 @@
 // components/Search.tsx
-import { SetStateAction, useState } from 'react';
-import { InstantSearch, SearchBox, Hits } from 'react-instantsearch';
+import { useState } from 'react';
+import { InstantSearch, SearchBox, Hits, SearchBoxProps } from 'react-instantsearch';
 import algoliasearch from 'algoliasearch/lite';
 import Link from 'next/link';
 
@@ -8,7 +8,10 @@ interface SearchProps {
   // Add any props if needed
 }
 
-
+interface SearchBoxProps {
+  onChange: (value: string) => void;
+  // other props...
+}
 
 const searchClient = algoliasearch('X4E0G26EBR', '12c8dc7eb6a245387db4745f839ef853');
 
@@ -18,10 +21,8 @@ const Search: React.FC<SearchProps> = () => {
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="your_index_name">
-        <SearchBox
-          autoFocus
-          onChange={(e: { target: { value: SetStateAction<string> }; }) => setQuery(e.target.value)}
-        />
+        {/* Use CustomSearchBoxProps instead of SearchBoxProps */}
+        <SearchBox onChange={(value) => console.log(value)} />
         <Hits hitComponent={({ hit }: { hit: any }) => <Hit hit={hit} />} />
       </InstantSearch>
     </div>
