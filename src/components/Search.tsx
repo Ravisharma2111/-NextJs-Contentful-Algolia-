@@ -1,14 +1,11 @@
 // components/Search.tsx
 import { useState } from 'react';
-import { InstantSearch, SearchBox, Hits, SearchBoxProps } from 'react-instantsearch';
+import { InstantSearch, SearchBox, Hits } from 'react-instantsearch';
 import algoliasearch from 'algoliasearch/lite';
 import Link from 'next/link';
 
 interface SearchProps {
-}
-
-interface SearchBoxProps {
-  onChange: (value: string) => void;
+  // Add any props if needed
 }
 
 const searchClient = algoliasearch('X4E0G26EBR', '12c8dc7eb6a245387db4745f839ef853');
@@ -19,7 +16,10 @@ const Search: React.FC<SearchProps> = () => {
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="your_index_name">
-        <SearchBox onChange={(value) => console.log(value)} />
+         <input 
+          type="text" 
+          placeholder='Search for blog posts...'
+          onChange={(e) => setQuery(e.target.value)}        />
         <Hits hitComponent={({ hit }: { hit: any }) => <Hit hit={hit} />} />
       </InstantSearch>
     </div>
@@ -31,6 +31,7 @@ interface HitProps {
     slug: string;
     title: string;
     excerpt: string;
+    // Add other properties as needed
   };
 }
 

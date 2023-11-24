@@ -14,8 +14,11 @@ const PostDetail = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const singlePost = await getPostBySlug(slug);
-      dispatch(setPost(singlePost));
+      // Check if slug is a string before calling getPostBySlug
+      if (typeof slug === 'string') {
+        const singlePost = await getPostBySlug(slug);
+        dispatch(setPost(singlePost));
+      }
     };
 
     if (slug) {
